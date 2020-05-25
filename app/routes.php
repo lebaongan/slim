@@ -1,3 +1,6 @@
 <?php
 
-$app->get('/', \App\Controllers\HomeController::class . ':index');
+$app->get('/', \App\Controller\HomeController::class . ':index');
+
+// Auth
+$app->get('/signup', \App\Controllers\Auth\AuthController::class . ':showSignupForm');

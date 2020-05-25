@@ -3,14 +3,12 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\User;
 
 class HomeController extends BaseController
 {
     public function index($request, $response, $args)
     {
-        var_dump(config('database.driver'));
-        die;
-
-        return $this->view->render($response, 'layouts/app.twig');
+        return $this->view->render($response, 'layouts/home.twig');
     }
 }

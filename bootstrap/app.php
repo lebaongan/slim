@@ -23,6 +23,15 @@ $container->set('view', function () {
     return Twig::create(__DIR__ . '/../resources/views', ['cache' => false]);
 });
 
+// Set database connection
+$capsule = new Capsule;
+$capsule->addConnection(config('database'));
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+$container->set('db', function () use ($capsule) {
+    return $capsule;
+});
+
 // Create app
 $app = AppFactory::create();
 
